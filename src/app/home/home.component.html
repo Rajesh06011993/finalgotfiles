@@ -1,0 +1,88 @@
+<div class="form-group">
+  <select [(ngModel)]="selectedDropdown" #category="ngModel" name="selectedDropdown" class=" form-control" id="ctegory"> 
+    <option *ngFor = "let category of dropDowns" [value]="category"> {{category}} </option>
+  </select>
+</div>
+
+<br>
+<br>
+
+<div *ngFor="let data of allData" class="d-inline-flex">
+
+  <!-- For displaying chnractes with filters -->
+
+  <div *ngIf="(data.gender != undefined && (selectedDropdown == null ||
+   selectedDropdown == dropDowns[3]  )) || (data.gender != undefined && selectedDropdown == dropDowns[1])" id="characters"
+    class="card border-success mb-4 mr-3 ml-4 text-center" style="max-width: 18rem;">
+
+    <div class="card-header bg-transparent border-success" *ngIf="data.name.length == 0  ">
+      <b> Character Name: </b> <i> N/A </i> </div>
+    <div class="card-header bg-transparent border-success" *ngIf="data.name.length != 0  ">
+      <b> Character Name: </b> <i> {{data.name}} </i> </div>
+
+    <div class="card-body text-success">
+      <p class="card-text"> For more info click details button </p>
+      <p class="card-text">Born: {{data.born}} </p> <br>
+      <p class="card-text">Gender: {{data.gender}}</p> <br>
+      <p class="card-text" *ngFor="let aliase of data.aliases"> Aliases: {{aliase}} </p>
+    </div>
+
+    <div class="card-footer bg-transparent border-success">
+      <a type="button" class="btn btn-success" [routerLink]="['/view',data.url]"> Details </a>
+    </div>
+
+  </div>
+
+
+  <!-- For displaying Books with filters -->
+
+
+  <div *ngIf="(data.isbn != undefined && ( selectedDropdown == null || selectedDropdown == dropDowns[3] ))
+   || (data.isbn != undefined && selectedDropdown == dropDowns[0]) " id="books" class="card border-info mb-4 mr-3 ml-4 text-center"
+    style="max-width: 18rem;">
+
+    <div class="card-header bg-transparent border-success" *ngIf="data.name.length == 0  ">
+      <b> Book Name: </b> <i> N/A </i> </div>
+    <div class="card-header bg-transparent border-success" *ngIf="data.name.length != 0  ">
+      <b> Book Name: </b> <i> {{data.name}} </i> </div>
+
+    <div class="card-body text-info">
+      <p class="card-text"> For more info click details button </p>
+      <p class="card-text" *ngFor="let author of data.authors">Author: {{author}} </p> <br>
+      <p class="card-text">No Of Pages: {{data.numberOfPages}}</p> <br>
+      <p class="card-text"> Released: {{ data.released | date:"MM/dd/yyyy"}} </p> <br>
+    </div>
+
+    <div class="card-footer bg-transparent border-success">
+      <a type="button" class="btn btn-info" [routerLink]="['/view',data.url]"> Details </a>
+    </div>
+
+  </div>
+
+
+  <!-- For displaying Houses with filters -->
+
+  <div *ngIf="(data.region != undefined && (selectedDropdown == null || selectedDropdown == dropDowns[3] )) 
+  || ( data.region != undefined && selectedDropdown == dropDowns[2] )" id="houses" class="card border-dark mb-4 mr-3 ml-4 text-center"
+    style="max-width: 18rem;">
+
+    <div class="card-header bg-transparent border-success" *ngIf="data.name.length == 0  ">
+      <b> House Name:  </b> <i> N/A </i> </div>
+    <div class="card-header bg-transparent border-success" *ngIf="data.name.length != 0  ">
+      <b> House Name:  </b> <i> {{data.name}} </i> </div>
+
+
+    <div class="card-body text-dark">
+      <p class="card-text"> For more info click details button </p>
+      <p class="card-text">Region: {{data.region}} </p> <br>
+      <p class="card-text">Founded: {{data.founded}}</p> <br>
+      <p class="card-text"> Titles: <span *ngFor="let tit of data.titles; let first = first; let last = last">  {{ tit }} {{last ? '': ', '}} </span>        </p>
+    </div>
+
+    <div class="card-footer bg-transparent border-success">
+      <a type="button" class="btn btn-dark" [routerLink]="['/view',data.url]"> Details </a>
+    </div>
+
+  </div>
+
+</div>

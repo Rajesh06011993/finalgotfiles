@@ -1,0 +1,130 @@
+<br>
+<div class="col-md-12" *ngIf="data">
+
+
+  <!-- For displaying chnractes -->
+
+  <div class="card text-center" *ngIf="data.gender != undefined">
+
+    <div class="card-header">
+      <b> <i *ngIf = "data.name.length != 0 ">  {{data.name}} </i> </b>
+      <b *ngIf="data.name.length == 0 "> Name: <i >  N/A </i> </b>
+    </div>
+
+    <div class="card-body">
+
+      <p class="card-text" *ngIf="data.born.length != 0">Born: <b> <i> {{data.born}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.born.length == 0">Born: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.father.length != 0">Father: <b> <i> {{data.father}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.father.length == 0">Father: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.mother.length != 0">Mother: <b> <i> {{data.mother}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.mother.length == 0">Mother: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.culture.length != 0">Culture: <b> <i> {{data.culture}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.culture.length == 0">Culture: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.gender.length != 0">Gender: <b> <i> {{data.gender}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.gender.length == 0">Gender: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.spouse.length != 0">Spouse: <b> <i> {{data.spouse}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.spouse.length == 0">Spouse: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.playedBy.length >= 1 && data.playedBy[0].length != 0 "> Played By: <b> <i  *ngFor = "let play of data.playedBy; let first = first; let last = last "> {{play}} {{last ? "" : ", "}} </i> </b>        </p>
+      <p class="card-text" *ngIf="data.playedBy.length <= 1 && data.playedBy[0].length == 0"> Played By: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.titles.length >= 1 && data.titles[0].length != 0  "> Titles: <b> <i *ngFor = "let tit of data.titles; let first = first; let last = last "> {{tit}} {{last ? "" : ", "}} </i> </b>        </p>
+      <p class="card-text" *ngIf="data.titles.length  <= 1 && data.titles[0].length == 0 "> Titles: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.tvSeries.length >= 1 && data.tvSeries[0].length != 0"> Part of Tv Series like: <b>  <i *ngFor = "let tv of data.tvSeries; let first = first; let last = last "> {{tv}} {{last ? "" : ", "}} </i> </b>        </p>
+      <p class="card-text" *ngIf="data.tvSeries.length <= 1 && data.tvSeries[0].length == 0"> Part of Tv Series like:: <b> <i> N/A </i> </b> </p>
+
+    </div>
+
+    <div class="card-footer text-muted">
+      <small> Click on Game of thrones to go home </small>
+    </div>
+
+  </div>
+
+
+
+  <!-- For displaying Books  -->
+
+  <div class="card text-center" *ngIf="data.isbn != undefined">
+
+    <div class="card-header">
+      <b> <i *ngIf = "data.name.length != 0 ">  {{data.name}} </i> </b>
+      <b *ngIf="data.name.length == 0 "> Name : <i>  N/A </i> </b>
+    </div>
+
+    <div class="card-body">
+
+      <p class="card-text" *ngIf="data.authors.length >= 1 && data.authors[0].length != 0">Authors : <b>  <i *ngFor = "let auth of data.authors; let first = first; let last = last "> {{auth}} {{last ? "" : ", "}} </i> </b>        </p>
+      <p class="card-text" *ngIf="data.authors.length <= 1 && data.authors[0].length == 0"> Authors : <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text">Country published : <b> <i> {{data.country}} </i> </b> </p>
+      <p class="card-text">Media Type : <b> <i> {{data.mediaType}} </i> </b> </p>
+      <p class="card-text">No Of Pages : <b> <i> {{data.numberOfPages}} </i> </b> </p>
+      <p class="card-text">No Of Charcters : <b> <i> {{data.characters.length}} </i> </b> </p>
+      <p class="card-text">Publisher : <b> <i> {{data.publisher}} </i> </b> </p>
+      <p class="card-text">Released on : <b> <i> {{data.released | date: "MM/dd/yyyy"}} </i> </b> </p>
+      <p class="card-text">ISBN No: <b> <i> {{data.isbn}} </i> </b> </p>
+
+    </div>
+
+    <div class="card-footer text-muted">
+      <small> Click on Game of thrones to go home </small>
+    </div>
+
+  </div>
+
+  <!-- For displaying Houses  -->
+
+  <div class="card text-center" *ngIf="data.region != undefined">
+
+    <div class="card-header">
+      <b> <i *ngIf = "data.name.length != 0 ">  {{data.name}} </i> </b>
+      <b *ngIf="data.name.length == 0 "> Name:  <i >  N/A </i> </b>
+    </div>
+
+    <div class="card-body">
+
+      <p class="card-text" *ngIf="data.ancestralWeapons.length >= 1 && data.ancestralWeapons[0].length != 0">AncestralWeapons : <b>  <i *ngFor = "let ancestralWeapons of data.ancestralWeapons; let first = first; let last = last "> {{ancestralWeapons}} {{last ? "" : ", "}} </i> </b>  </p>
+      <p class="card-text" *ngIf="data.ancestralWeapons.length <= 1 && data.ancestralWeapons[0].length == 0"> AncestralWeapons : <b> <i> N/A </i> </b> </p>
+ 
+      <p class="card-text">CoatOfArms : <b> <i> {{data.coatOfArms}} </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.diedOut != 0">DiedOut: <b> <i> {{data.diedOut}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.diedOut == 0">DiedOut: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.founded != 0">Founded: <b> <i> {{data.founded}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.founded == 0">Founded: <b> <i> N/A </i> </b> </p>
+
+      <p class="card-text" *ngIf="data.founder != 0">Founder: <b> <i> {{data.founder}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.founder == 0">Founder: <b> <i> N/A </i> </b> </p>
+      
+      <p class="card-text" *ngIf="data.heir != 0">Heir: <b> <i> {{data.heir}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.heir == 0">Heir: <b> <i> N/A </i> </b> </p>       
+      
+      <p class="card-text" *ngIf="data.region != 0">Region: <b> <i> {{data.region}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.region == 0">Region: <b> <i> N/A </i> </b> </p> 
+ 
+      <p class="card-text">No Of SwornMembers : <b> <i> {{data.swornMembers.length}} </i> </b> </p>
+      
+      <p class="card-text" *ngIf="data.titles.length >= 1 && data.titles[0].length != 0  "> Titles: <b> <i *ngFor = "let tit of data.titles; let first = first; let last = last "> {{tit}} {{last ? "" : ", "}} </i> </b>        </p>
+      <p class="card-text" *ngIf="data.titles.length  <= 1 && data.titles[0].length == 0 "> Titles: <b> <i> N/A </i> </b> </p>
+     
+      <p class="card-text" *ngIf="data.words != 0">Words: <b> <i> {{data.words}} </i> </b> </p>
+      <p class="card-text" *ngIf="data.words == 0">Words: <b> <i> N/A </i> </b> </p>  
+
+    </div>
+
+    <div class="card-footer text-muted">
+      <small> Click on Game of thrones to go home </small>
+    </div>
+
+  </div>
+
+</div>
