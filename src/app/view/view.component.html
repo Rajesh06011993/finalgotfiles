@@ -91,9 +91,9 @@
 
     <div class="card-body">
 
-      <p class="card-text" *ngIf="data.ancestralWeapons.length >= 1 && data.ancestralWeapons[0].length != 0">AncestralWeapons : <b>  <i *ngFor = "let ancestralWeapons of data.ancestralWeapons; let first = first; let last = last "> {{ancestralWeapons}} {{last ? "" : ", "}} </i> </b>  </p>
+      <p class="card-text" *ngIf="data.ancestralWeapons.length >= 1 && data.ancestralWeapons[0].length != 0">AncestralWeapons : <b>  <i *ngFor = "let ancestralWeapons of data.ancestralWeapons; let first = first; let last = last "> {{ancestralWeapons}} {{last ? "" : ", "}} </i> </b>        </p>
       <p class="card-text" *ngIf="data.ancestralWeapons.length <= 1 && data.ancestralWeapons[0].length == 0"> AncestralWeapons : <b> <i> N/A </i> </b> </p>
- 
+
       <p class="card-text">CoatOfArms : <b> <i> {{data.coatOfArms}} </i> </b> </p>
 
       <p class="card-text" *ngIf="data.diedOut != 0">DiedOut: <b> <i> {{data.diedOut}} </i> </b> </p>
@@ -104,20 +104,20 @@
 
       <p class="card-text" *ngIf="data.founder != 0">Founder: <b> <i> {{data.founder}} </i> </b> </p>
       <p class="card-text" *ngIf="data.founder == 0">Founder: <b> <i> N/A </i> </b> </p>
-      
+
       <p class="card-text" *ngIf="data.heir != 0">Heir: <b> <i> {{data.heir}} </i> </b> </p>
-      <p class="card-text" *ngIf="data.heir == 0">Heir: <b> <i> N/A </i> </b> </p>       
-      
+      <p class="card-text" *ngIf="data.heir == 0">Heir: <b> <i> N/A </i> </b> </p>
+
       <p class="card-text" *ngIf="data.region != 0">Region: <b> <i> {{data.region}} </i> </b> </p>
-      <p class="card-text" *ngIf="data.region == 0">Region: <b> <i> N/A </i> </b> </p> 
- 
+      <p class="card-text" *ngIf="data.region == 0">Region: <b> <i> N/A </i> </b> </p>
+
       <p class="card-text">No Of SwornMembers : <b> <i> {{data.swornMembers.length}} </i> </b> </p>
-      
+
       <p class="card-text" *ngIf="data.titles.length >= 1 && data.titles[0].length != 0  "> Titles: <b> <i *ngFor = "let tit of data.titles; let first = first; let last = last "> {{tit}} {{last ? "" : ", "}} </i> </b>        </p>
       <p class="card-text" *ngIf="data.titles.length  <= 1 && data.titles[0].length == 0 "> Titles: <b> <i> N/A </i> </b> </p>
-     
+
       <p class="card-text" *ngIf="data.words != 0">Words: <b> <i> {{data.words}} </i> </b> </p>
-      <p class="card-text" *ngIf="data.words == 0">Words: <b> <i> N/A </i> </b> </p>  
+      <p class="card-text" *ngIf="data.words == 0">Words: <b> <i> N/A </i> </b> </p>
 
     </div>
 
